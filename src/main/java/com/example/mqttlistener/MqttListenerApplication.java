@@ -31,6 +31,7 @@ public class MqttListenerApplication implements CommandLineRunner {
             logger.info("Получено сообщение из MQTT: " + payload);
             sendToHttp(payload);
         });
+
     }
 
     private void sendToHttp(String data) {

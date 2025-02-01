@@ -32,8 +32,8 @@ public class HttpHandlerApplication {
         try {
 
             JSONObject json = new JSONObject(data);
-            String name = json.optString("name", ""); // name
-            int age = json.optInt("age", 0); // age
+            String name = json.optString("name", "");
+            int age = json.optInt("age", 0);
 
             // запрос
             String sql = "INSERT INTO messages (name, age, received_at) VALUES (?, ?, NOW())";
