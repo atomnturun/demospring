@@ -30,12 +30,12 @@ public class HttpHandlerApplication {
 
     private void saveToDatabase(String data) {
         try {
-            // Парсим JSON
-            JSONObject json = new JSONObject(data);
-            String name = json.optString("name", ""); // Имя (по умолчанию пустая строка)
-            int age = json.optInt("age", 0); // Возраст (по умолчанию 0)
 
-            // SQL-запрос
+            JSONObject json = new JSONObject(data);
+            String name = json.optString("name", ""); // name
+            int age = json.optInt("age", 0); // age
+
+            // запрос
             String sql = "INSERT INTO messages (name, age, received_at) VALUES (?, ?, NOW())";
             logger.info(String.format("Подготовка запроса: INSERT INTO messages (name, age) VALUES ('%s', %d)", name, age));
             jdbcTemplate.update(sql, name, age);
